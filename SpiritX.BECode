@@ -1,0 +1,287 @@
+//Adapted from Guru99's Java Swing GUI Tutorial
+
+import javax.swing.*;
+import javax.swing.GroupLayout.Alignment;
+
+import java.awt.*;
+import java.lang.*;
+import java.util.*;
+
+
+
+class gui {
+
+  
+      
+    public static void main (String args[]) {
+    
+        
+
+        //GUI Window dimensions
+        JFrame Nerdframe = new JFrame ("SpiritX OS");
+    
+        Nerdframe.setSize(800,800);
+       
+        
+
+    //***GUI OS Menu Bar and Components***//
+        
+        // Creating the Menu Bar
+       
+       JMenuBar mb = new JMenuBar();
+        mb.setBackground(Color.BLACK);
+        
+       
+        // Creating Menus
+        JMenu m1 = new JMenu(String.valueOf("🦅"));
+        m1.setForeground(Color.RED);
+        m1.setRolloverEnabled(true);
+             JMenu m1a = new JMenu("Power ⚡");
+             JMenu m1b = new JMenu("Settings ⚙ ");
+             JMenuItem m1c = new JMenuItem("Pictures 🖼");
+             JMenuItem m1d = new JMenuItem("Documents 🗎");
+             JMenuItem m1e = new JMenuItem("Account 👨");
+
+        //Adding START Menu Items
+        m1.add(m1a);
+        m1.add(m1b);
+        m1.add(m1c);
+        m1.add(m1d);
+        m1.add(m1e);
+
+        JMenu m2 = new JMenu("ABOUT");
+        m2.setForeground(Color.WHITE);
+        JMenu m3 = new JMenu("HELP");
+        m3.setForeground(Color.WHITE);
+
+        JMenu space = new JMenu("                                                                                                                                                                                                                                                                                ");
+
+        JButton weather = new JButton ("🌙 65°F");
+        JMenu volume = new JMenu ("🕪");
+        JMenuItem volumescroll = new JMenuItem();
+        JButton battery = new JButton ("🔋");
+        JButton WIFI = new JButton ("📶");
+        JButton keyboard = new JButton ("⌨");
+
+        weather.setBackground(Color.BLACK);
+        weather.setForeground(Color.WHITE);
+        weather.setToolTipText("Los Angeles, CA");
+        volume.setBackground(Color.BLACK);
+        volume.setForeground(Color.WHITE);
+        volume.setToolTipText("Volume");
+        battery.setBackground(Color.BLACK);
+        battery.setForeground(Color.WHITE);
+        battery.setToolTipText("Battery Life: 96%");
+        WIFI.setBackground(Color.BLACK);
+        WIFI.setForeground(Color.WHITE);
+        WIFI.setToolTipText("SIGNAL: Very Good");
+        keyboard.setBackground(Color.BLACK);
+        keyboard.setForeground(Color.WHITE);
+        keyboard.setToolTipText("Keyboard Language");
+
+
+        // Adding Menus to the Menu Bar
+        mb.add(m1);
+        mb.add(m2);
+        mb.add(m3);
+        mb.add(space);
+        mb.add(weather);
+        mb.add(volume);
+        mb.add(battery);
+        mb.add(WIFI);
+        mb.add(keyboard);
+        
+     
+
+        //Power Options (4 Choices)
+        JMenuItem m1a1 = new JMenuItem ("Logout");
+        JMenuItem m1a2 = new JMenuItem("Sleep");
+        JMenuItem m1a3 = new JMenuItem("Restart");
+        JMenuItem m1a4 = new JMenuItem("Shut down");
+
+        m1a.add(m1a1);
+        m1a.add(m1a2);
+        m1a.add(m1a3);
+        m1a.add(m1a4);
+
+        //Setting Options (5 Chioces)
+        JMenuItem m1b1 = new JMenuItem("System");
+        JMenuItem m1b2 = new JMenuItem("Devices");
+        JMenuItem m1b3 = new JMenuItem("Network & Internet");
+        JMenuItem m1b4 = new JMenuItem("Accounts");
+        JMenuItem m1b5 = new JMenuItem("Personalize");
+
+        m1b.add(m1b1);
+        m1b.add(m1b2);
+        m1b.add(m1b3);
+        m1b.add(m1b4);
+        m1b.add(m1b5);
+
+        // Creating ABOUT Menu Items
+        JMenuItem m2a = new JMenuItem("SpiritX®");
+        JMenuItem m2b = new JMenuItem("System");
+
+        m2.add(m2a);
+        m2.add(m2b);
+
+        //Help Options (1 Choice)
+        JMenuItem m3a = new JMenuItem("SpiritTeam Chat");
+         
+         m3.add(m3a);
+
+
+        
+
+    // Creating Taskbar Bottom Panel
+    JPanel Taskbar = new JPanel();
+    
+     JPanel Clock = new JPanel(new GridLayout(2,0));
+     JLabel clocktime = new JLabel("1:34 AM");
+     clocktime.setForeground(Color.WHITE);
+     JLabel clockdate= new JLabel("11/18/2022");
+     clockdate.setForeground(Color.WHITE);
+
+     Clock.setBackground(Color.BLACK);
+     Clock.setForeground(Color.WHITE);
+
+     Clock.add(clocktime);
+     Clock.add(clockdate);
+
+     
+
+     JPanel BlackSpace = new JPanel(new GridLayout(3,0));
+     BlackSpace.setBackground(Color.BLACK);
+
+     JButton Search= new JButton (String.valueOf("🔎"));
+     Search.setBackground(Color.BLACK);
+     Search.setForeground(Color.CYAN);
+     Search.setToolTipText("Search");
+    
+    JLabel searchlabel = new JLabel ("Search For:");
+
+
+    JButton FileFinder = new JButton (String.valueOf("📁")); 
+    FileFinder.setForeground(Color.YELLOW);
+    FileFinder.setBackground(Color.BLACK);
+    FileFinder.setToolTipText("File Finder");
+    JButton TextDocs = new JButton (String.valueOf("🖹")); 
+    TextDocs.setForeground(Color.WHITE);
+    TextDocs.setBackground(Color.BLACK);
+    TextDocs.setToolTipText("Word Process");
+    JButton Calculator = new JButton (String.valueOf("⨧")); 
+    Calculator.setBackground(Color.BLACK);
+    Calculator.setForeground(Color.WHITE);
+    Calculator.setToolTipText("Calculator");
+    JButton WebBrowser = new JButton (String.valueOf("🌎"));
+    WebBrowser.setForeground(Color.CYAN);
+    WebBrowser.setBackground(Color.BLACK);
+    WebBrowser.setToolTipText("Internet");
+
+    JButton Notifications = new JButton (String.valueOf("💬")); 
+    Notifications.setForeground(Color.WHITE);
+    Notifications.setBackground(Color.BLACK);
+    Notifications.setToolTipText("Notifications");
+    
+    JTextField tf = new JTextField(25); // Sets Search Bar Character Limit (25 chars now)
+    JTextArea ta = new JTextArea(); // Search Textbox typing ability
+
+    searchlabel.setForeground(Color.WHITE);
+    
+    Clock.setLayout(new FlowLayout(FlowLayout.RIGHT));
+    
+
+    Taskbar.setBackground(Color.BLACK);
+
+  
+   
+    Taskbar.add(Search);
+    Taskbar.add(searchlabel);
+    Taskbar.add(tf);
+    Taskbar.add(FileFinder);
+    Taskbar.add(TextDocs);
+    Taskbar.add(Calculator);
+    Taskbar.add(WebBrowser);
+    Taskbar.add(Clock);
+    Taskbar.add(BlackSpace); //Creates space
+
+
+    Taskbar.add(Notifications);
+
+   //Desktop Panel Configuration
+
+
+
+   JPanel SpiritDesktop = new JPanel();
+
+   
+   SpiritDesktop.setBackground(new Color (153,153,153));
+
+
+   JButton Trashbin = new JButton (String.valueOf("🗑")); 
+   Trashbin.setForeground(Color.WHITE);
+   Trashbin.setBackground(Color.BLACK);
+   
+   
+
+   JButton PC = new JButton (String.valueOf("🖳")); 
+   PC.setForeground(Color.LIGHT_GRAY);
+   PC.setBackground(Color.BLACK);
+
+   JButton Paint = new JButton (String.valueOf("🖻")); 
+   Paint.setForeground(Color.CYAN);
+   
+
+   JButton SpaceQuest= new JButton (String.valueOf("🚀")); 
+   SpaceQuest.setForeground(Color.WHITE);
+   
+
+   JButton Pictures = new JButton (String.valueOf("🖼")); 
+   Pictures.setForeground(Color.ORANGE);
+   Pictures.setBackground(Color.BLACK);
+
+   
+
+   JPanel dsktpicons = new JPanel(new GridLayout());
+   dsktpicons.add(Trashbin);
+   dsktpicons.add(PC);
+   dsktpicons.add(Paint);
+   dsktpicons.add(SpaceQuest);
+   dsktpicons.add(Pictures);
+
+   JLabel SpiritxLabel = new JLabel ("🦅 SPIRITX®");
+   SpiritxLabel.setForeground(Color.RED);
+
+   
+
+
+  SpiritxLabel.setFont(new Font("Monospaced", Font.ITALIC, 80));
+  
+  SpiritxLabel.setLayout(new GridBagLayout());
+
+
+  
+   SpiritDesktop.add(SpiritxLabel);
+   //SpiritDesktop.add(dsktpicons);
+ 
+   
+
+
+ //Drawing content to OS window
+ 
+   
+   /* Navigation */
+   Nerdframe.getContentPane().add(BorderLayout.SOUTH, Taskbar);
+   Nerdframe.getContentPane().add(BorderLayout.NORTH, mb);
+   Nerdframe.getContentPane().add(BorderLayout.CENTER, ta);
+ 
+  
+   /* Desktop */
+   Nerdframe.getContentPane().add(BorderLayout.CENTER, SpiritDesktop);
+   Nerdframe.getContentPane().add(BorderLayout.CENTER, SpiritxLabel);
+   
+
+   /*Visibility of JFrame*/
+   Nerdframe.setVisible(true);
+    
+    }
+}
