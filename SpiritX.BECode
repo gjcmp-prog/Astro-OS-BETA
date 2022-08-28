@@ -14,7 +14,9 @@ class gui {
   
       
     public static void main (String args[]) {
-    
+
+        
+       
         
 
         //GUI Window dimensions
@@ -58,7 +60,7 @@ class gui {
 
         JButton weather = new JButton ("🌙 65°F");
         JMenu volume = new JMenu ("🕪");
-        JMenuItem volumescroll = new JMenuItem();
+        JScrollBar v = new JScrollBar();
         JButton battery = new JButton ("🔋");
         JButton WIFI = new JButton ("📶");
         JButton keyboard = new JButton ("⌨");
@@ -87,6 +89,7 @@ class gui {
         mb.add(space);
         mb.add(weather);
         mb.add(volume);
+        volume.add(v);
         mb.add(battery);
         mb.add(WIFI);
         mb.add(keyboard);
