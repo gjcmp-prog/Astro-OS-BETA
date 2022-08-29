@@ -1,7 +1,7 @@
 //Adapted from Guru99's Java Swing GUI Tutorial
 
 import javax.swing.*;
-import javax.swing.GroupLayout.Alignment;
+
 
 import java.awt.*;
 import java.lang.*;
@@ -20,7 +20,7 @@ class gui {
         
 
         //GUI Window dimensions
-        JFrame Nerdframe = new JFrame ("SpiritX OS");
+        JFrame Nerdframe = new JFrame ("Astro OS");
     
         Nerdframe.setSize(800,800);
        
@@ -35,14 +35,16 @@ class gui {
         
        
         // Creating Menus
-        JMenu m1 = new JMenu(String.valueOf("🦅"));
-        m1.setForeground(Color.RED);
+        JMenu m1 = new JMenu(String.valueOf("💫"));
+        m1.setForeground(new Color (255, 204, 51));
         m1.setRolloverEnabled(true);
+        m1.setToolTipText("Start");
              JMenu m1a = new JMenu("Power ⚡");
              JMenu m1b = new JMenu("Settings ⚙ ");
              JMenuItem m1c = new JMenuItem("Pictures 🖼");
              JMenuItem m1d = new JMenuItem("Documents 🗎");
-             JMenuItem m1e = new JMenuItem("Account 👨");
+             JMenu m1e = new JMenu("Tools 🛠");
+             JMenuItem m1f = new JMenuItem("Account 👨");
 
         //Adding START Menu Items
         m1.add(m1a);
@@ -50,16 +52,31 @@ class gui {
         m1.add(m1c);
         m1.add(m1d);
         m1.add(m1e);
+        m1.add(m1f);
 
         JMenu m2 = new JMenu("ABOUT");
         m2.setForeground(Color.WHITE);
         JMenu m3 = new JMenu("HELP");
         m3.setForeground(Color.WHITE);
 
-        JMenu space = new JMenu("                                                                                                                                                                                                                                                                                ");
+        JMenu space = new JMenu("                                                                                                                                                                                                                                                                  ");
 
         JButton weather = new JButton ("🌙 65°F");
+        JMenu hiddenicons = new JMenu("▼");
+        hiddenicons.setToolTipText("Show hidden icons");
+        JMenuItem security = new JMenuItem("🔰");
+        security.setToolTipText("Astro Security");
+        security.setForeground(Color.BLACK);
+        JMenuItem duckdrive= new JMenuItem("☁");
+        duckdrive.setToolTipText("DuckDrive");
+        duckdrive.setForeground(Color.BLACK);
+        
+        
         JMenu volume = new JMenu ("🕪");
+     
+
+        
+        
         JScrollBar v = new JScrollBar();
         JButton battery = new JButton ("🔋");
         JButton WIFI = new JButton ("📶");
@@ -67,15 +84,17 @@ class gui {
 
         weather.setBackground(Color.BLACK);
         weather.setForeground(Color.WHITE);
-        weather.setToolTipText("Los Angeles, CA");
+        weather.setToolTipText("Portland, OR");
+        hiddenicons.setBackground(Color.BLACK);
+        hiddenicons.setForeground(Color.WHITE);
         volume.setBackground(Color.BLACK);
         volume.setForeground(Color.WHITE);
         volume.setToolTipText("Volume");
         battery.setBackground(Color.BLACK);
-        battery.setForeground(Color.WHITE);
+        battery.setForeground(Color.GREEN);
         battery.setToolTipText("Battery Life: 96%");
         WIFI.setBackground(Color.BLACK);
-        WIFI.setForeground(Color.WHITE);
+        WIFI.setForeground(Color.CYAN);
         WIFI.setToolTipText("SIGNAL: Very Good");
         keyboard.setBackground(Color.BLACK);
         keyboard.setForeground(Color.WHITE);
@@ -87,6 +106,9 @@ class gui {
         mb.add(m2);
         mb.add(m3);
         mb.add(space);
+        mb.add(hiddenicons);
+        hiddenicons.add(security);
+        hiddenicons.add(duckdrive);
         mb.add(weather);
         mb.add(volume);
         volume.add(v);
@@ -120,15 +142,22 @@ class gui {
         m1b.add(m1b4);
         m1b.add(m1b5);
 
+        //Tools Options (1 Choice)
+        JMenuItem m1e1 = new JMenuItem("Calculator ⨧");
+
+        m1e.add(m1e1);
+
         // Creating ABOUT Menu Items
-        JMenuItem m2a = new JMenuItem("SpiritX®");
+        JMenuItem m2a = new JMenuItem("Astro®");
         JMenuItem m2b = new JMenuItem("System");
+        JMenuItem m2c = new JMenuItem("Contact DuckTech");
 
         m2.add(m2a);
         m2.add(m2b);
+        m2.add(m2c);
 
         //Help Options (1 Choice)
-        JMenuItem m3a = new JMenuItem("SpiritTeam Chat");
+        JMenuItem m3a = new JMenuItem("AstroTeam Chat");
          
          m3.add(m3a);
 
@@ -139,7 +168,7 @@ class gui {
     JPanel Taskbar = new JPanel();
     
      JPanel Clock = new JPanel(new GridLayout(2,0));
-     JLabel clocktime = new JLabel("1:34 AM");
+     JLabel clocktime = new JLabel("9:45 PM");
      clocktime.setForeground(Color.WHITE);
      JLabel clockdate= new JLabel("11/18/2022");
      clockdate.setForeground(Color.WHITE);
@@ -171,10 +200,7 @@ class gui {
     TextDocs.setForeground(Color.WHITE);
     TextDocs.setBackground(Color.BLACK);
     TextDocs.setToolTipText("Word Process");
-    JButton Calculator = new JButton (String.valueOf("⨧")); 
-    Calculator.setBackground(Color.BLACK);
-    Calculator.setForeground(Color.WHITE);
-    Calculator.setToolTipText("Calculator");
+ 
     JButton WebBrowser = new JButton (String.valueOf("🌎"));
     WebBrowser.setForeground(Color.CYAN);
     WebBrowser.setBackground(Color.BLACK);
@@ -202,7 +228,6 @@ class gui {
     Taskbar.add(tf);
     Taskbar.add(FileFinder);
     Taskbar.add(TextDocs);
-    Taskbar.add(Calculator);
     Taskbar.add(WebBrowser);
     Taskbar.add(Clock);
     Taskbar.add(BlackSpace); //Creates space
@@ -214,10 +239,10 @@ class gui {
 
 
 
-   JPanel SpiritDesktop = new JPanel();
-
-   
-   SpiritDesktop.setBackground(new Color (153,153,153));
+   JPanel AstroDesktop = new JPanel();
+   AstroDesktop.setBackground(Color.RED);
+  
+  
 
 
    JButton Trashbin = new JButton (String.valueOf("🗑")); 
@@ -242,34 +267,26 @@ class gui {
    Pictures.setForeground(Color.ORANGE);
    Pictures.setBackground(Color.BLACK);
 
+
+
+
+   JLabel AstroLabel = new JLabel ("💫 ASTRO");
    
-
-   JPanel dsktpicons = new JPanel(new GridLayout());
-   dsktpicons.add(Trashbin);
-   dsktpicons.add(PC);
-   dsktpicons.add(Paint);
-   dsktpicons.add(SpaceQuest);
-   dsktpicons.add(Pictures);
-
-   JLabel SpiritxLabel = new JLabel ("🦅 SPIRITX®");
-   SpiritxLabel.setForeground(Color.RED);
-
-   
+   AstroLabel.setForeground(Color.DARK_GRAY);
 
 
-  SpiritxLabel.setFont(new Font("Monospaced", Font.ITALIC, 80));
+
+  AstroLabel.setFont(new Font("Monospaced", Font.ITALIC, 80));
   
-  SpiritxLabel.setLayout(new GridBagLayout());
+  AstroLabel.setLayout(new GridBagLayout());
 
 
+   AstroDesktop.add(AstroLabel);
   
-   SpiritDesktop.add(SpiritxLabel);
-   //SpiritDesktop.add(dsktpicons);
+  
  
    
-
-
- //Drawing content to OS window
+    //Drawing content to OS window
  
    
    /* Navigation */
@@ -279,8 +296,8 @@ class gui {
  
   
    /* Desktop */
-   Nerdframe.getContentPane().add(BorderLayout.CENTER, SpiritDesktop);
-   Nerdframe.getContentPane().add(BorderLayout.CENTER, SpiritxLabel);
+   Nerdframe.getContentPane().add(BorderLayout.CENTER, AstroDesktop);
+   Nerdframe.getContentPane().add(BorderLayout.CENTER, AstroLabel);
    
 
    /*Visibility of JFrame*/
